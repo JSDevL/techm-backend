@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Profile;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static com.hackerearth.fullstack.backend.utils.Constants.*;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Profile("test")
+@ActiveProfiles("test")
 class StudentControllerTest {
     @Autowired
     StudentController studentController;
@@ -76,6 +76,7 @@ class StudentControllerTest {
     }
 
     @Test
+    @DirtiesContext
     void testGivenStudentIsNotPresent_WhenDeleteStudent_ThenShouldThrowCustomException() {
         // given
         long studentId = 1L;
