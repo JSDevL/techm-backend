@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: ${ACTIVE_PROFILE:test}
+    active: ${ACTIVE_PROFILE:local}
 server:
   port: 8000
   address: 0.0.0.0
