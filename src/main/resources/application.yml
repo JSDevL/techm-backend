@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE:local}
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  jpa:
+    database-platform: com.hackerearth.fullstack.backend.SQLDialect
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    url: jdbc:sqlite:hackerearth.db
+    driver-class-name: org.sqlite.JDBC
+    username: admin
+    password: admin
+server:
+  port: 8000
+  address: 0.0.0.0
